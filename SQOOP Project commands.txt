@@ -1,0 +1,382 @@
+________________________________________________________________________
+------------------------------------------------------------------------
+##**1) Normal Import**##
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+**Hadoop**
+------------------------------------------------------------------------
+
+hadoop dfsadmin -safemode leave
+
+------------------------------------------------------------------------
+**mysql RDBMS**
+------------------------------------------------------------------------
+
+mysql -uroot -pcloudera
+
+create database sproject;
+
+use sproject;
+
+create table dxb_sales_tab (sl int, product_id int, product_name varchar(20), quantity int, unit_price int, total int, staff_id int, sale_date date);
+
+insert into dxb_sales_tab values (1,1001,'Almonds',10,100,1000,101,'2017-04-01');
+insert into dxb_sales_tab values (2,1002,'Cashews',5,200,1000,102,'2017-04-01');
+insert into dxb_sales_tab values (3,1003,'Pistachios',2,500,1000,103,'2017-04-01');
+insert into dxb_sales_tab values (4,1004,'Walnuts',3,300,900,104,'2017-04-01');
+insert into dxb_sales_tab values (5,1005,'Peanuts',1,100,100,105,'2017-04-01');
+insert into dxb_sales_tab values (6,2001,'Milk Chocolate',10,50,500,201,'2017-04-01');
+insert into dxb_sales_tab values (7,2002,'Dark Chocolate',5,100,500,202,'2017-04-01');
+insert into dxb_sales_tab values (8,2003,'White Chocolate',2,75,150,203,'2017-04-01');
+insert into dxb_sales_tab values (9,2004,'Assorted Chocolates',1,200,200,204,'2017-04-01');
+insert into dxb_sales_tab values (10,2005,'Chocolate Bars',10,10,100,205,'2017-04-01');
+insert into dxb_sales_tab values (11,3001,'Mixed Nuts',5,150,750,301,'2017-04-01');
+insert into dxb_sales_tab values (12,3002,'Dry Fruits',3,200,600,302,'2017-04-01');
+insert into dxb_sales_tab values (13,3003,'Trail Mix',2,100,200,303,'2017-04-01');
+insert into dxb_sales_tab values (14,3004,'Gift Baskets',1,500,500,304,'2017-04-01');
+insert into dxb_sales_tab values (15,1009,'Pine Nuts',0.25,200,50,109,'2017-04-02');
+insert into dxb_sales_tab values (16,1010,'Pecans',1,200,200,110,'2017-04-02');
+insert into dxb_sales_tab values (17,2006,'Ruby Chocolate',2,100,200,206,'2017-04-02');
+insert into dxb_sales_tab values (18,2007,'Vegan Chocolate',1,75,75,207,'2017-04-02');
+insert into dxb_sales_tab values (19,1001,'Almonds',20,100,2000,101,'2017-04-02');
+insert into dxb_sales_tab values (20,1002,'Cashews',10,200,2000,102,'2017-04-02');
+insert into dxb_sales_tab values (21,1003,'Pistachios',4,500,2000,103,'2017-04-02');
+insert into dxb_sales_tab values (22,1004,'Walnuts',6,300,1800,104,'2017-04-02');
+insert into dxb_sales_tab values (23,1005,'Peanuts',2,100,200,105,'2017-04-02');
+insert into dxb_sales_tab values (24,2001,'Milk Chocolate',20,50,1000,201,'2017-04-02');
+insert into dxb_sales_tab values (25,2002,'Dark Chocolate',10,100,1000,202,'2017-04-03');
+insert into dxb_sales_tab values (26,2003,'White Chocolate',4,75,300,203,'2017-04-03');
+insert into dxb_sales_tab values (27,2004,'Assorted Chocolates',2,200,400,204,'2017-04-03');
+insert into dxb_sales_tab values (28,2005,'Chocolate Bars',20,10,200,205,'2017-04-03');
+insert into dxb_sales_tab values (29,3001,'Mixed Nuts',10,150,1500,301,'2017-04-03');
+insert into dxb_sales_tab values (30,3002,'Dry Fruits',6,200,1200,302,'2017-04-03');
+insert into dxb_sales_tab values (31,3003,'Trail Mix',4,100,400,303,'2017-04-03');
+insert into dxb_sales_tab values (32,1001,'Almonds',15,100,1500,101,'2017-04-03');
+insert into dxb_sales_tab values (33,1002,'Cashews',7,200,1400,102,'2017-04-03');
+insert into dxb_sales_tab values (34,1003,'Pistachios',3,500,1500,103,'2017-04-03');
+insert into dxb_sales_tab values (35,1004,'Walnuts',5,300,1500,104,'2017-04-03');
+insert into dxb_sales_tab values (36,1005,'Peanuts',1,100,100,105,'2017-04-03');
+insert into dxb_sales_tab values (37,2001,'Milk Chocolate',15,50,750,201,'2017-04-03');
+insert into dxb_sales_tab values (38,2002,'Dark Chocolate',7,100,700,202,'2017-04-03');
+insert into dxb_sales_tab values (39,2003,'White Chocolate',3,75,225,203,'2017-04-04');
+insert into dxb_sales_tab values (40,2004,'Assorted Chocolates',1,200,200,204,'2017-04-04');
+insert into dxb_sales_tab values (41,2005,'Chocolate Bars',15,10,150,205,'2017-04-04');
+insert into dxb_sales_tab values (42,3001,'Mixed Nuts',7,150,1050,301,'2017-04-04');
+insert into dxb_sales_tab values (43,3002,'Dry Fruits',4,200,800,302,'2017-04-04');
+insert into dxb_sales_tab values (44,3003,'Trail Mix',2,100,200,303,'2017-04-04');
+insert into dxb_sales_tab values (45,3004,'Gift Baskets',1,500,500,304,'2017-04-05');
+insert into dxb_sales_tab values (46,3005,'Nut Butters',7,50,350,305,'2017-04-05');
+insert into dxb_sales_tab values (47,1001,'Almonds',10,100,1000,101,'2017-04-05');
+insert into dxb_sales_tab values (48,1002,'Cashews',5,200,1000,102,'2017-04-05');
+insert into dxb_sales_tab values (49,1001,'Almonds',20,100,2000,101,'2017-04-05');
+insert into dxb_sales_tab values (50,1002,'Cashews',10,200,2000,102,'2017-04-05');
+insert into dxb_sales_tab values (51,1003,'Pistachios',4,500,2000,103,'2017-04-05');
+insert into dxb_sales_tab values (52,1004,'Walnuts',6,300,1800,104,'2017-04-05');
+insert into dxb_sales_tab values (53,1005,'Peanuts',2,100,200,105,'2017-04-06');
+insert into dxb_sales_tab values (54,2001,'Milk Chocolate',20,50,1000,201,'2017-04-06');
+insert into dxb_sales_tab values (55,2002,'Dark Chocolate',10,100,1000,202,'2017-04-06');
+insert into dxb_sales_tab values (56,2003,'White Chocolate',4,75,300,203,'2017-04-06');
+insert into dxb_sales_tab values (57,2004,'Assorted Chocolates',2,200,400,204,'2017-04-06');
+insert into dxb_sales_tab values (58,2005,'Chocolate Bars',20,10,200,205,'2017-04-06');
+insert into dxb_sales_tab values (59,3001,'Mixed Nuts',10,150,1500,301,'2017-04-06');
+insert into dxb_sales_tab values (60,3002,'Dry Fruits',6,200,1200,302,'2017-04-06');
+insert into dxb_sales_tab values (61,3003,'Trail Mix',4,100,400,303,'2017-04-06');
+insert into dxb_sales_tab values (62,3004,'Gift Baskets',2,500,1000,304,'2017-04-06');
+insert into dxb_sales_tab values (63,3005,'Nut Butters',10,50,500,305,'2017-04-06');
+
+
+select * from dxb_sales_tab;
+
+quit;
+
+------------------------------------------------------------------------
+**Normal SQOOP import**
+------------------------------------------------------------------------
+
+sqoop import  --connect jdbc:mysql://localhost/sproject  --username root  --password cloudera  --table dxb_sales_tab  --m 1  --target-dir /user/cloudera/nimport
+
+------------------------------------------------------------------------
+**Hadoop verification of import**
+------------------------------------------------------------------------
+
+hadoop fs -ls /user/cloudera/nimport
+hadoop fs -cat /user/cloudera/nimport/part-m-00000
+
+________________________________________________________________________
+------------------------------------------------------------------------
+##***2) Partial Import***##
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+**Partial SQOOP import using where command**
+------------------------------------------------------------------------
+
+sqoop import  --connect jdbc:mysql://localhost/sproject  --username root  --password cloudera  --table dxb_sales_tab  --m 1  --where "product_name = 'Almonds'"  --columns product_name,total  --target-dir /user/cloudera/wimport
+
+------------------------------------------------------------------------
+**Hadoop verification of import**
+------------------------------------------------------------------------
+
+hadoop fs -ls /user/cloudera/wimport
+hadoop fs -cat /user/cloudera/wimport/
+
+
+________________________________________________________________________
+------------------------------------------------------------------------
+##***3) Query Import***##
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+**Partial SQOOP import using query command**
+------------------------------------------------------------------------
+
+sqoop import  --connect jdbc:mysql://localhost/sproject  --username root  --password cloudera  --m 1  --query "select product_name,total from dxb_sales_tab where product_name = 'Cashews' and \$CONDITIONS"  --target-dir /user/cloudera/qimport  
+
+------------------------------------------------------------------------
+**Hadoop verification of import**
+------------------------------------------------------------------------
+
+hadoop fs -ls /user/cloudera/qimport
+hadoop fs -cat /user/cloudera/qimport/
+
+________________________________________________________________________
+------------------------------------------------------------------------
+##***4) Incremental Import***##
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+**mysql RDBMS**
+------------------------------------------------------------------------
+
+mysql -uroot -pcloudera
+
+show database;
+
+use sproject;
+
+insert into dxb_sales_tab values (63,3005,'Nut Butters',10,50,500,305,'2017-04-06');
+insert into dxb_sales_tab values (64,1001,'Almonds',15,100,1500,101,'2017-04-07');
+insert into dxb_sales_tab values (65,1002,'Cashews',7,200,1400,102,'2017-04-07');
+insert into dxb_sales_tab values (66,2005,'Chocolate Bars',10,10,100,205,'2017-04-07');
+insert into dxb_sales_tab values (67,3001,'Mixed Nuts',5,150,750,301,'2017-04-07');
+insert into dxb_sales_tab values (68,3002,'Dry Fruits',3,200,600,302,'2017-04-07');
+insert into dxb_sales_tab values (69,3003,'Trail Mix',2,100,200,303,'2017-04-07');
+insert into dxb_sales_tab values (70,3004,'Gift Baskets',1,500,500,304,'2017-04-07');
+insert into dxb_sales_tab values (71,1009,'Pine Nuts',0.25,200,50,109,'2017-04-07');
+insert into dxb_sales_tab values (72,1010,'Pecans',1,200,200,110,'2017-04-07');
+insert into dxb_sales_tab values (73,2006,'Ruby Chocolate',2,100,200,206,'2017-04-07');
+
+select * from dxb_sales_tab;
+
+quit;
+
+------------------------------------------------------------------------
+**Incemental SQOOP import**
+------------------------------------------------------------------------
+
+sqoop import  --connect jdbc:mysql://localhost/sproject  --username root  --password cloudera  --table dxb_sales_tab  --m 1  --target-dir /user/cloudera/iimport  --incremental append  --check-column sl  --last-value 62
+
+------------------------------------------------------------------------
+**Hadoop verification of import**
+------------------------------------------------------------------------
+
+hadoop fs -ls /user/cloudera/iimport
+hadoop fs -cat /user/cloudera/iimport/
+
+________________________________________________________________________
+------------------------------------------------------------------------
+##***5) multiple mappers Import***##
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+**SQOOP import using 5 mappers**
+------------------------------------------------------------------------
+
+sqoop import  --connect jdbc:mysql://localhost/sproject  --username root  --password cloudera  --table dxb_sales_tab  --m 5  --split-by sl  --target-dir /user/cloudera/mmimport
+
+------------------------------------------------------------------------
+**Hadoop verification of import**
+------------------------------------------------------------------------
+
+hadoop fs -ls /user/cloudera/mmimport
+hadoop fs -cat /user/cloudera/mmimport/
+
+
+________________________________________________________________________
+------------------------------------------------------------------------
+##***6) SQOOP Import using secure password ***##
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+**password in pfile**
+------------------------------------------------------------------------
+
+echo -n cloudera> /home/cloudera/pfile
+hadoop fs -ls /home/cloudera/pfile
+
+------------------------------------------------------------------------
+**Incemental SQOOP import**
+------------------------------------------------------------------------
+
+--sqoop import  --connect jdbc:mysql://localhost/sproject  --username root  --password-file file:///home/cloudera/pfile  --table dxb_sales_tab  --m 1  --target-dir /user/cloudera/pimport
+
+------------------------------------------------------------------------
+**Hadoop verification of import**
+------------------------------------------------------------------------
+
+hadoop fs -ls /user/cloudera/pimport
+hadoop fs -cat /user/cloudera/pimport/
+
+________________________________________________________________________
+------------------------------------------------------------------------
+##***7) Cloud SQOOP Import ***##
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+**Cloud SQOOP import**
+------------------------------------------------------------------------
+
+sqoop import -<ACCESSKEY> -<SECRETKEY> -<ENDPOINT>  --connect jdbc:mysql://localhost/cproject  --username root  --password cloudera  --table dxb_sales_tab  --m 1  --target-dir /user/cloudera/cimport
+
+------------------------------------------------------------------------
+**Hadoop verification of import**
+------------------------------------------------------------------------
+
+hadoop fs -ls /user/cloudera/cimport
+hadoop fs -cat /user/cloudera/cimport/
+
+
+________________________________________________________________________
+------------------------------------------------------------------------
+##***8) SQOOP Import as parquet file***##
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+**SQOOP import as parquet file**
+------------------------------------------------------------------------
+
+sqoop import  --connect jdbc:mysql://localhost/sproject  --username root  --password cloudera  --table dxb_sales_tab  --m 1  --target-dir /user/cloudera/simport  --as-parquetfile
+
+------------------------------------------------------------------------
+**Hadoop verification of import**
+------------------------------------------------------------------------
+
+hadoop fs -ls /user/cloudera/simport
+hadoop fs -cat /user/cloudera/simport/
+
+________________________________________________________________________
+------------------------------------------------------------------------
+##***9) Modified Import***##
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+**mysql RDBMS**
+------------------------------------------------------------------------
+
+mysql -uroot -pcloudera
+
+show database;
+
+use sproject;
+
+update dxb_sales_tab set staff_id=202 where sl=60;
+update dxb_sales_tab set staff_id=202 where sl=65;
+update dxb_sales_tab set staff_id=202 where sl=70;
+
+select * from dxb_sales_tab;
+
+quit;
+
+------------------------------------------------------------------------
+**Modified SQOOP import**
+------------------------------------------------------------------------
+
+sqoop import  --connect jdbc:mysql://localhost/sproject  --username root  --password cloudera  --table dxb_sales_tab  --m 1  --target-dir /user/cloudera/mimport  --incremental lastmodified  --check-cloumn sl  --last-value 59  --merge-key staff_id
+
+------------------------------------------------------------------------
+**Hadoop verification of import**
+------------------------------------------------------------------------
+
+hadoop fs -ls /user/cloudera/mimport
+hadoop fs -cat /user/cloudera/mimport/
+
+
+
+________________________________________________________________________
+------------------------------------------------------------------------
+##***10) SQOOP Export HDFS to RDBMS***##
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+**mysql RDBMS**
+------------------------------------------------------------------------
+
+mysql -uroot -pcloudera
+
+show databases;
+
+use sproject;
+
+create table dxbexp_tab(sl int, product_id int, product_name varchar(20), quantity int, unit_price int, total int, staff_id int, sale_date date);
+create table staexp_tab(sl int, product_id int, product_name varchar(20), quantity int, unit_price int, total int, staff_id int, sale_date date);
+select * from dxbexp_tab;
+select * from staexp_tab;
+------------------------------------------------------------------------
+**SQOOP export**
+------------------------------------------------------------------------
+
+sqoop export  --connect jdbc:mysql://localhost/sproject  --username root  --password cloudera  --table dxbexp_tab  --staging-table staexp_tab  --m 1  --export-dir /user/cloudera/mimport
+
+------------------------------------------------------------------------
+**RDBMS verification of export**
+------------------------------------------------------------------------
+mysql -uroot -pcloudera
+show databases;
+use sproject;
+select * from dxbexp_tab;
+select * from staexp_tab;
+exit;
+
+________________________________________________________________________
+------------------------------------------------------------------------
+
+##***11) SQOOP Import job***##
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+**SQOOP import job**
+------------------------------------------------------------------------
+
+sqoop job --delete dxbsalesjob
+
+sqoop job --create dxbsalesjob -- import --connect jdbc:mysql://localhost/sproject --username root --password cloudera --table dxbexp_tab --m 1 --target-dir /user/cloudera/jimport --incremental append --check-column sl --last-value 0
+
+sqoop job --show dxbsalesjob
+
+sqoop job --exec dxbsalesjob
+
+sqoop job --show dxbsalesjob
+
+------------------------------------------------------------------------
+**mysql RDBMS**
+------------------------------------------------------------------------
+
+mysql -uroot -pcloudera
+
+show database;
+
+use sproject;
+
+insert into dxb_sales_tab values (74,3005,'Nut Butters',10,50,500,305,'2017-04-08');
+insert into dxb_sales_tab values (75,3001,'Mixed Nuts',5,150,750,301,'2017-04-08');
+insert into dxb_sales_tab values (76,3004,'Gift Baskets',1,500,500,304,'2017-04-08');
+insert into dxb_sales_tab values (77,2006,'Ruby Chocolate',2,100,200,206,'2017-04-08');
+
+select * from dxb_sales_tab;
+
+quit;
+
+------------------------------------------------------------------------
+**SQOOP import job triggering**
+------------------------------------------------------------------------
+
+sqoop job --exec dxbsalesjob
+
+sqoop job --show dxbsalesjob

@@ -1,0 +1,474 @@
+------------------------------------------------------------------------
+##***1) Solution***##
+------------------------------------------------------------------------
+[cloudera@quickstart ~]$ hadoop fs -ls /user/cloudera/nimport
+Found 2 items
+-rw-r--r--   1 cloudera cloudera          0 2023-10-23 07:19 /user/cloudera/nimpor                                                                                      t/_SUCCESS
+-rw-r--r--   1 cloudera cloudera       2851 2023-10-23 07:19 /user/cloudera/nimpor                                                                                      t/part-m-00000
+
+[cloudera@quickstart ~]$ hadoop fs -cat  /user/cloudera/nimport/part-m-00000
+1,1001,Almonds,10,100,1000,101,2017-04-01
+2,1002,Cashews,5,200,1000,102,2017-04-01
+3,1003,Pistachios,2,500,1000,103,2017-04-01
+4,1004,Walnuts,3,300,900,104,2017-04-01
+5,1005,Peanuts,1,100,100,105,2017-04-01
+6,2001,Milk Chocolate,10,50,500,201,2017-04-01
+7,2002,Dark Chocolate,5,100,500,202,2017-04-01
+8,2003,White Chocolate,2,75,150,203,2017-04-01
+9,2004,Assorted Chocolates,1,200,200,204,2017-04-01
+10,2005,Chocolate Bars,10,10,100,205,2017-04-01
+11,3001,Mixed Nuts,5,150,750,301,2017-04-01
+12,3002,Dry Fruits,3,200,600,302,2017-04-01
+13,3003,Trail Mix,2,100,200,303,2017-04-01
+14,3004,Gift Baskets,1,500,500,304,2017-04-01
+15,1009,Pine Nuts,0,200,50,109,2017-04-02
+16,1010,Pecans,1,200,200,110,2017-04-02
+17,2006,Ruby Chocolate,2,100,200,206,2017-04-02
+18,2007,Vegan Chocolate,1,75,75,207,2017-04-02
+19,1001,Almonds,20,100,2000,101,2017-04-02
+20,1002,Cashews,10,200,2000,102,2017-04-02
+21,1003,Pistachios,4,500,2000,103,2017-04-02
+22,1004,Walnuts,6,300,1800,104,2017-04-02
+23,1005,Peanuts,2,100,200,105,2017-04-02
+24,2001,Milk Chocolate,20,50,1000,201,2017-04-02
+25,2002,Dark Chocolate,10,100,1000,202,2017-04-03
+26,2003,White Chocolate,4,75,300,203,2017-04-03
+27,2004,Assorted Chocolates,2,200,400,204,2017-04-03
+28,2005,Chocolate Bars,20,10,200,205,2017-04-03
+29,3001,Mixed Nuts,10,150,1500,301,2017-04-03
+30,3002,Dry Fruits,6,200,1200,302,2017-04-03
+31,3003,Trail Mix,4,100,400,303,2017-04-03
+32,1001,Almonds,15,100,1500,101,2017-04-03
+33,1002,Cashews,7,200,1400,102,2017-04-03
+34,1003,Pistachios,3,500,1500,103,2017-04-03
+35,1004,Walnuts,5,300,1500,104,2017-04-03
+36,1005,Peanuts,1,100,100,105,2017-04-03
+37,2001,Milk Chocolate,15,50,750,201,2017-04-03
+38,2002,Dark Chocolate,7,100,700,202,2017-04-03
+39,2003,White Chocolate,3,75,225,203,2017-04-04
+40,2004,Assorted Chocolates,1,200,200,204,2017-04-04
+41,2005,Chocolate Bars,15,10,150,205,2017-04-04
+42,3001,Mixed Nuts,7,150,1050,301,2017-04-04
+43,3002,Dry Fruits,4,200,800,302,2017-04-04
+44,3003,Trail Mix,2,100,200,303,2017-04-04
+45,3004,Gift Baskets,1,500,500,304,2017-04-05
+46,3005,Nut Butters,7,50,350,305,2017-04-05
+47,1001,Almonds,10,100,1000,101,2017-04-05
+48,1002,Cashews,5,200,1000,102,2017-04-05
+49,1001,Almonds,20,100,2000,101,2017-04-05
+50,1002,Cashews,10,200,2000,102,2017-04-05
+51,1003,Pistachios,4,500,2000,103,2017-04-05
+52,1004,Walnuts,6,300,1800,104,2017-04-05
+53,1005,Peanuts,2,100,200,105,2017-04-06
+54,2001,Milk Chocolate,20,50,1000,201,2017-04-06
+55,2002,Dark Chocolate,10,100,1000,202,2017-04-06
+56,2003,White Chocolate,4,75,300,203,2017-04-06
+57,2004,Assorted Chocolates,2,200,400,204,2017-04-06
+58,2005,Chocolate Bars,20,10,200,205,2017-04-06
+59,3001,Mixed Nuts,10,150,1500,301,2017-04-06
+60,3002,Dry Fruits,6,200,1200,302,2017-04-06
+61,3003,Trail Mix,4,100,400,303,2017-04-06
+62,3004,Gift Baskets,2,500,1000,304,2017-04-06
+63,3005,Nut Butters,10,50,500,305,2017-04-06
+
+------------------------------------------------------------------------
+##***2) Solution***##
+------------------------------------------------------------------------
+[cloudera@quickstart ~]$ hadoop fs -ls /user/cloudera/wimport
+
+Found 2 items
+-rw-r--r--   1 cloudera cloudera          0 2023-10-23 07:31 /user/cloudera/wimport/_SUCCESS
+-rw-r--r--   1 cloudera cloudera         65 2023-10-23 07:31 /user/cloudera/wimport/part-m-00000
+
+[cloudera@quickstart ~]$ hadoop fs -cat  /user/cloudera/wimport/part-m-00000
+Almonds,1000
+Almonds,2000
+Almonds,1500
+Almonds,1000
+Almonds,2000
+
+
+------------------------------------------------------------------------
+##***3) Solution***##
+------------------------------------------------------------------------
+
+[cloudera@quickstart ~]$ hadoop fs -ls /user/cloudera/qimport
+Found 2 items
+-rw-r--r--   1 cloudera cloudera          0 2023-10-23 07:51 /user/cloudera/qimport/_SUCCESS
+-rw-r--r--   1 cloudera cloudera         65 2023-10-23 07:51 /user/cloudera/qimport/part-m-00000
+[cloudera@quickstart ~]$ hadoop fs -cat /user/cloudera/qimport/part-m-00000
+Cashews,1000
+Cashews,2000
+Cashews,1400
+Cashews,1000
+Cashews,2000
+
+------------------------------------------------------------------------
+##***4) Solution***##
+------------------------------------------------------------------------
+[cloudera@quickstart ~]$ hadoop fs -ls /user/cloudera/iimport
+Found 1 items
+-rw-r--r--   1 cloudera cloudera        530 2023-10-23 07:58 /user/cloudera/iimport/part-m-00000
+[cloudera@quickstart ~]$ hadoop fs -cat  /user/cloudera/iimport/part-m-00000
+63,3005,Nut Butters,10,50,500,305,2017-04-06
+63,3005,Nut Butters,10,50,500,305,2017-04-06
+64,1001,Almonds,15,100,1500,101,2017-04-07
+65,1002,Cashews,7,200,1400,102,2017-04-07
+66,2005,Chocolate Bars,10,10,100,205,2017-04-07
+67,3001,Mixed Nuts,5,150,750,301,2017-04-07
+68,3002,Dry Fruits,3,200,600,302,2017-04-07
+69,3003,Trail Mix,2,100,200,303,2017-04-07
+70,3004,Gift Baskets,1,500,500,304,2017-04-07
+71,1009,Pine Nuts,0,200,50,109,2017-04-07
+72,1010,Pecans,1,200,200,110,2017-04-07
+73,2006,Ruby Chocolate,2,100,200,206,2017-04-07
+
+
+
+
+------------------------------------------------------------------------
+##***5) Solution***##
+------------------------------------------------------------------------
+
+[cloudera@quickstart ~]$ hadoop fs -ls /user/cloudera/mmimport
+Found 6 items
+-rw-r--r--   1 cloudera cloudera          0 2023-10-23 08:09 /user/cloudera/mmimport/_SUCCESS
+-rw-r--r--   1 cloudera cloudera        667 2023-10-23 08:09 /user/cloudera/mmimport/part-m-00000
+-rw-r--r--   1 cloudera cloudera        688 2023-10-23 08:09 /user/cloudera/mmimport/part-m-00001
+-rw-r--r--   1 cloudera cloudera        633 2023-10-23 08:09 /user/cloudera/mmimport/part-m-00002
+-rw-r--r--   1 cloudera cloudera        637 2023-10-23 08:09 /user/cloudera/mmimport/part-m-00003
+-rw-r--r--   1 cloudera cloudera        711 2023-10-23 08:09 /user/cloudera/mmimport/part-m-00004
+[cloudera@quickstart ~]$ hadoop fs -cat  /user/cloudera/mmimport/part-m-00000
+1,1001,Almonds,10,100,1000,101,2017-04-01
+2,1002,Cashews,5,200,1000,102,2017-04-01
+3,1003,Pistachios,2,500,1000,103,2017-04-01
+4,1004,Walnuts,3,300,900,104,2017-04-01
+5,1005,Peanuts,1,100,100,105,2017-04-01
+6,2001,Milk Chocolate,10,50,500,201,2017-04-01
+7,2002,Dark Chocolate,5,100,500,202,2017-04-01
+8,2003,White Chocolate,2,75,150,203,2017-04-01
+9,2004,Assorted Chocolates,1,200,200,204,2017-04-01
+10,2005,Chocolate Bars,10,10,100,205,2017-04-01
+11,3001,Mixed Nuts,5,150,750,301,2017-04-01
+12,3002,Dry Fruits,3,200,600,302,2017-04-01
+13,3003,Trail Mix,2,100,200,303,2017-04-01
+14,3004,Gift Baskets,1,500,500,304,2017-04-01
+15,1009,Pine Nuts,0,200,50,109,2017-04-02
+[cloudera@quickstart ~]$ hadoop fs -cat  /user/cloudera/mmimport/part-m-00001
+16,1010,Pecans,1,200,200,110,2017-04-02
+17,2006,Ruby Chocolate,2,100,200,206,2017-04-02
+18,2007,Vegan Chocolate,1,75,75,207,2017-04-02
+19,1001,Almonds,20,100,2000,101,2017-04-02
+20,1002,Cashews,10,200,2000,102,2017-04-02
+21,1003,Pistachios,4,500,2000,103,2017-04-02
+22,1004,Walnuts,6,300,1800,104,2017-04-02
+23,1005,Peanuts,2,100,200,105,2017-04-02
+24,2001,Milk Chocolate,20,50,1000,201,2017-04-02
+25,2002,Dark Chocolate,10,100,1000,202,2017-04-03
+26,2003,White Chocolate,4,75,300,203,2017-04-03
+27,2004,Assorted Chocolates,2,200,400,204,2017-04-03
+28,2005,Chocolate Bars,20,10,200,205,2017-04-03
+29,3001,Mixed Nuts,10,150,1500,301,2017-04-03
+30,3002,Dry Fruits,6,200,1200,302,2017-04-03
+[cloudera@quickstart ~]$ hadoop fs -cat  /user/cloudera/mmimport/part-m-00002
+31,3003,Trail Mix,4,100,400,303,2017-04-03
+32,1001,Almonds,15,100,1500,101,2017-04-03
+33,1002,Cashews,7,200,1400,102,2017-04-03
+34,1003,Pistachios,3,500,1500,103,2017-04-03
+35,1004,Walnuts,5,300,1500,104,2017-04-03
+36,1005,Peanuts,1,100,100,105,2017-04-03
+37,2001,Milk Chocolate,15,50,750,201,2017-04-03
+38,2002,Dark Chocolate,7,100,700,202,2017-04-03
+39,2003,White Chocolate,3,75,225,203,2017-04-04
+40,2004,Assorted Chocolates,1,200,200,204,2017-04-04
+41,2005,Chocolate Bars,15,10,150,205,2017-04-04
+42,3001,Mixed Nuts,7,150,1050,301,2017-04-04
+43,3002,Dry Fruits,4,200,800,302,2017-04-04
+44,3003,Trail Mix,2,100,200,303,2017-04-04
+[cloudera@quickstart ~]$ hadoop fs -cat  /user/cloudera/mmimport/part-m-00003
+45,3004,Gift Baskets,1,500,500,304,2017-04-05
+46,3005,Nut Butters,7,50,350,305,2017-04-05
+47,1001,Almonds,10,100,1000,101,2017-04-05
+48,1002,Cashews,5,200,1000,102,2017-04-05
+49,1001,Almonds,20,100,2000,101,2017-04-05
+50,1002,Cashews,10,200,2000,102,2017-04-05
+51,1003,Pistachios,4,500,2000,103,2017-04-05
+52,1004,Walnuts,6,300,1800,104,2017-04-05
+53,1005,Peanuts,2,100,200,105,2017-04-06
+54,2001,Milk Chocolate,20,50,1000,201,2017-04-06
+55,2002,Dark Chocolate,10,100,1000,202,2017-04-06
+56,2003,White Chocolate,4,75,300,203,2017-04-06
+57,2004,Assorted Chocolates,2,200,400,204,2017-04-06
+58,2005,Chocolate Bars,20,10,200,205,2017-04-06
+[cloudera@quickstart ~]$ hadoop fs -cat  /user/cloudera/mmimport/part-m-00004
+59,3001,Mixed Nuts,10,150,1500,301,2017-04-06
+60,3002,Dry Fruits,6,200,1200,302,2017-04-06
+61,3003,Trail Mix,4,100,400,303,2017-04-06
+62,3004,Gift Baskets,2,500,1000,304,2017-04-06
+63,3005,Nut Butters,10,50,500,305,2017-04-06
+63,3005,Nut Butters,10,50,500,305,2017-04-06
+64,1001,Almonds,15,100,1500,101,2017-04-07
+65,1002,Cashews,7,200,1400,102,2017-04-07
+66,2005,Chocolate Bars,10,10,100,205,2017-04-07
+67,3001,Mixed Nuts,5,150,750,301,2017-04-07
+68,3002,Dry Fruits,3,200,600,302,2017-04-07
+69,3003,Trail Mix,2,100,200,303,2017-04-07
+70,3004,Gift Baskets,1,500,500,304,2017-04-07
+71,1009,Pine Nuts,0,200,50,109,2017-04-07
+72,1010,Pecans,1,200,200,110,2017-04-07
+73,2006,Ruby Chocolate,2,100,200,206,2017-04-07
+
+
+
+------------------------------------------------------------------------
+##***6) Solution***##
+------------------------------------------------------------------------
+
+[cloudera@quickstart ~]$ hadoop fs -ls /user/cloudera/pimport
+Found 2 items
+-rw-r--r--   1 cloudera cloudera          0 2023-10-23 21:46 /user/cloudera/pimport/_SUCCESS
+-rw-r--r--   1 cloudera cloudera       3336 2023-10-23 21:46 /user/cloudera/pimport/part-m-00000
+[cloudera@quickstart ~]$ hadoop fs -cat /user/cloudera/pimport/part-m-00000
+1,1001,Almonds,10,100,1000,101,2017-04-01
+2,1002,Cashews,5,200,1000,102,2017-04-01
+3,1003,Pistachios,2,500,1000,103,2017-04-01
+4,1004,Walnuts,3,300,900,104,2017-04-01
+5,1005,Peanuts,1,100,100,105,2017-04-01
+6,2001,Milk Chocolate,10,50,500,201,2017-04-01
+7,2002,Dark Chocolate,5,100,500,202,2017-04-01
+8,2003,White Chocolate,2,75,150,203,2017-04-01
+9,2004,Assorted Chocolates,1,200,200,204,2017-04-01
+10,2005,Chocolate Bars,10,10,100,205,2017-04-01
+11,3001,Mixed Nuts,5,150,750,301,2017-04-01
+12,3002,Dry Fruits,3,200,600,302,2017-04-01
+13,3003,Trail Mix,2,100,200,303,2017-04-01
+14,3004,Gift Baskets,1,500,500,304,2017-04-01
+15,1009,Pine Nuts,0,200,50,109,2017-04-02
+16,1010,Pecans,1,200,200,110,2017-04-02
+17,2006,Ruby Chocolate,2,100,200,206,2017-04-02
+18,2007,Vegan Chocolate,1,75,75,207,2017-04-02
+19,1001,Almonds,20,100,2000,101,2017-04-02
+20,1002,Cashews,10,200,2000,102,2017-04-02
+21,1003,Pistachios,4,500,2000,103,2017-04-02
+22,1004,Walnuts,6,300,1800,104,2017-04-02
+23,1005,Peanuts,2,100,200,105,2017-04-02
+24,2001,Milk Chocolate,20,50,1000,201,2017-04-02
+25,2002,Dark Chocolate,10,100,1000,202,2017-04-03
+26,2003,White Chocolate,4,75,300,203,2017-04-03
+27,2004,Assorted Chocolates,2,200,400,204,2017-04-03
+28,2005,Chocolate Bars,20,10,200,205,2017-04-03
+29,3001,Mixed Nuts,10,150,1500,301,2017-04-03
+30,3002,Dry Fruits,6,200,1200,302,2017-04-03
+31,3003,Trail Mix,4,100,400,303,2017-04-03
+32,1001,Almonds,15,100,1500,101,2017-04-03
+33,1002,Cashews,7,200,1400,102,2017-04-03
+34,1003,Pistachios,3,500,1500,103,2017-04-03
+35,1004,Walnuts,5,300,1500,104,2017-04-03
+36,1005,Peanuts,1,100,100,105,2017-04-03
+37,2001,Milk Chocolate,15,50,750,201,2017-04-03
+38,2002,Dark Chocolate,7,100,700,202,2017-04-03
+39,2003,White Chocolate,3,75,225,203,2017-04-04
+40,2004,Assorted Chocolates,1,200,200,204,2017-04-04
+41,2005,Chocolate Bars,15,10,150,205,2017-04-04
+42,3001,Mixed Nuts,7,150,1050,301,2017-04-04
+43,3002,Dry Fruits,4,200,800,302,2017-04-04
+44,3003,Trail Mix,2,100,200,303,2017-04-04
+45,3004,Gift Baskets,1,500,500,304,2017-04-05
+46,3005,Nut Butters,7,50,350,305,2017-04-05
+47,1001,Almonds,10,100,1000,101,2017-04-05
+48,1002,Cashews,5,200,1000,102,2017-04-05
+49,1001,Almonds,20,100,2000,101,2017-04-05
+50,1002,Cashews,10,200,2000,102,2017-04-05
+51,1003,Pistachios,4,500,2000,103,2017-04-05
+52,1004,Walnuts,6,300,1800,104,2017-04-05
+53,1005,Peanuts,2,100,200,105,2017-04-06
+54,2001,Milk Chocolate,20,50,1000,201,2017-04-06
+55,2002,Dark Chocolate,10,100,1000,202,2017-04-06
+56,2003,White Chocolate,4,75,300,203,2017-04-06
+57,2004,Assorted Chocolates,2,200,400,204,2017-04-06
+58,2005,Chocolate Bars,20,10,200,205,2017-04-06
+59,3001,Mixed Nuts,10,150,1500,301,2017-04-06
+60,3002,Dry Fruits,6,200,1200,302,2017-04-06
+61,3003,Trail Mix,4,100,400,303,2017-04-06
+62,3004,Gift Baskets,2,500,1000,304,2017-04-06
+63,3005,Nut Butters,10,50,500,305,2017-04-06
+63,3005,Nut Butters,10,50,500,305,2017-04-06
+64,1001,Almonds,15,100,1500,101,2017-04-07
+65,1002,Cashews,7,200,1400,102,2017-04-07
+66,2005,Chocolate Bars,10,10,100,205,2017-04-07
+67,3001,Mixed Nuts,5,150,750,301,2017-04-07
+68,3002,Dry Fruits,3,200,600,302,2017-04-07
+69,3003,Trail Mix,2,100,200,303,2017-04-07
+70,3004,Gift Baskets,1,500,500,304,2017-04-07
+71,1009,Pine Nuts,0,200,50,109,2017-04-07
+72,1010,Pecans,1,200,200,110,2017-04-07
+73,2006,Ruby Chocolate,2,100,200,206,2017-04-07
+
+------------------------------------------------------------------------
+##***8) Solution***##
+------------------------------------------------------------------------
+
+[cloudera@quickstart ~]$ hadoop fs -ls /user/cloudera/simport
+Found 3 items
+drwxr-xr-x   - cloudera cloudera          0 2023-10-23 21:54 /user/cloudera/simport/.metadata
+drwxr-xr-x   - cloudera cloudera          0 2023-10-23 21:55 /user/cloudera/simport/.signals
+-rw-r--r--   1 cloudera cloudera       3240 2023-10-23 21:55 /user/cloudera/simport/3c3508ac-6a3b-4cc8-9ac0-171bd092a912.parquet
+
+
+------------------------------------------------------------------------
+##***9) Solution***##
+------------------------------------------------------------------------
+[cloudera@quickstart ~]$ hadoop fs -ls /user/cloudera/mimport
+Found 2 items
+-rw-r--r--   1 cloudera cloudera          0 2023-10-23 22:11 /user/cloudera/mimport/_SUCCESS
+-rw-r--r--   1 cloudera cloudera       1000 2023-10-23 22:11 /user/cloudera/mimport/part-m-00000
+[cloudera@quickstart ~]$ hadoop fs -cat /user/cloudera/mimport/part-m-00000
+53,1005,Peanuts,2,100,200,105,2017-04-06
+54,2001,Milk Chocolate,20,50,1000,201,2017-04-06
+55,2002,Dark Chocolate,10,100,1000,202,2017-04-06
+56,2003,White Chocolate,4,75,300,203,2017-04-06
+57,2004,Assorted Chocolates,2,200,400,204,2017-04-06
+58,2005,Chocolate Bars,20,10,200,205,2017-04-06
+59,3001,Mixed Nuts,10,150,1500,301,2017-04-06
+60,3002,Dry Fruits,6,200,1200,202,2017-04-06
+61,3003,Trail Mix,4,100,400,303,2017-04-06
+62,3004,Gift Baskets,2,500,1000,304,2017-04-06
+63,3005,Nut Butters,10,50,500,305,2017-04-06
+63,3005,Nut Butters,10,50,500,305,2017-04-06
+64,1001,Almonds,15,100,1500,101,2017-04-07
+65,1002,Cashews,7,200,1400,202,2017-04-07
+66,2005,Chocolate Bars,10,10,100,205,2017-04-07
+67,3001,Mixed Nuts,5,150,750,301,2017-04-07
+68,3002,Dry Fruits,3,200,600,302,2017-04-07
+69,3003,Trail Mix,2,100,200,303,2017-04-07
+70,3004,Gift Baskets,1,500,500,202,2017-04-07
+71,1009,Pine Nuts,0,200,50,109,2017-04-07
+72,1010,Pecans,1,200,200,110,2017-04-07
+73,2006,Ruby Chocolate,2,100,200,206,2017-04-07
+
+
+------------------------------------------------------------------------
+##***10) Solution***##
+------------------------------------------------------------------------
+mysql> use sproject;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> select * from dxbexp_tab;
++------+------------+---------------------+----------+------------+-------+----------+------------+
+| sl   | product_id | product_name        | quantity | unit_price | total | staff_id | sale_date  |
++------+------------+---------------------+----------+------------+-------+----------+------------+
+|   53 |       1005 | Peanuts             |        2 |        100 |   200 |      105 | 2017-04-06 |
+|   54 |       2001 | Milk Chocolate      |       20 |         50 |  1000 |      201 | 2017-04-06 |
+|   55 |       2002 | Dark Chocolate      |       10 |        100 |  1000 |      202 | 2017-04-06 |
+|   56 |       2003 | White Chocolate     |        4 |         75 |   300 |      203 | 2017-04-06 |
+|   57 |       2004 | Assorted Chocolates |        2 |        200 |   400 |      204 | 2017-04-06 |
+|   58 |       2005 | Chocolate Bars      |       20 |         10 |   200 |      205 | 2017-04-06 |
+|   59 |       3001 | Mixed Nuts          |       10 |        150 |  1500 |      301 | 2017-04-06 |
+|   60 |       3002 | Dry Fruits          |        6 |        200 |  1200 |      202 | 2017-04-06 |
+|   61 |       3003 | Trail Mix           |        4 |        100 |   400 |      303 | 2017-04-06 |
+|   62 |       3004 | Gift Baskets        |        2 |        500 |  1000 |      304 | 2017-04-06 |
+|   63 |       3005 | Nut Butters         |       10 |         50 |   500 |      305 | 2017-04-06 |
+|   63 |       3005 | Nut Butters         |       10 |         50 |   500 |      305 | 2017-04-06 |
+|   64 |       1001 | Almonds             |       15 |        100 |  1500 |      101 | 2017-04-07 |
+|   65 |       1002 | Cashews             |        7 |        200 |  1400 |      202 | 2017-04-07 |
+|   66 |       2005 | Chocolate Bars      |       10 |         10 |   100 |      205 | 2017-04-07 |
+|   67 |       3001 | Mixed Nuts          |        5 |        150 |   750 |      301 | 2017-04-07 |
+|   68 |       3002 | Dry Fruits          |        3 |        200 |   600 |      302 | 2017-04-07 |
+|   69 |       3003 | Trail Mix           |        2 |        100 |   200 |      303 | 2017-04-07 |
+|   70 |       3004 | Gift Baskets        |        1 |        500 |   500 |      202 | 2017-04-07 |
+|   71 |       1009 | Pine Nuts           |        0 |        200 |    50 |      109 | 2017-04-07 |
+|   72 |       1010 | Pecans              |        1 |        200 |   200 |      110 | 2017-04-07 |
+|   73 |       2006 | Ruby Chocolate      |        2 |        100 |   200 |      206 | 2017-04-07 |
++------+------------+---------------------+----------+------------+-------+----------+------------+
+22 rows in set (0.00 sec)
+
+mysql> select * from staexp_tab;
+Empty set (0.00 sec)
+
+
+------------------------------------------------------------------------
+##***11) Solution***##
+------------------------------------------------------------------------
+[cloudera@quickstart ~]$ sqoop job --show dxbsalesjob
+Warning: /usr/lib/sqoop/../accumulo does not exist! Accumulo imports will fail.
+Please set $ACCUMULO_HOME to the root of your Accumulo installation.
+23/10/24 06:17:50 INFO sqoop.Sqoop: Running Sqoop version: 1.4.6-cdh5.12.0
+Enter password:
+Job: dxbsalesjob
+Tool: import
+Options:
+----------------------------
+verbose = false
+hcatalog.drop.and.create.table = false
+incremental.last.value = 73
+db.connect.string = jdbc:mysql://localhost/sproject
+codegen.output.delimiters.escape = 0
+codegen.output.delimiters.enclose.required = false
+codegen.input.delimiters.field = 0
+mainframe.input.dataset.type = p
+split.limit = null
+hbase.create.table = false
+db.require.password = true
+hdfs.append.dir = true
+db.table = dxbexp_tab
+codegen.input.delimiters.escape = 0
+accumulo.create.table = false
+import.fetch.size = null
+codegen.input.delimiters.enclose.required = false
+db.username = root
+reset.onemapper = false
+codegen.output.delimiters.record = 10
+import.max.inline.lob.size = 16777216
+sqoop.throwOnError = false
+hbase.bulk.load.enabled = false
+hcatalog.create.table = false
+db.clear.staging.table = false
+incremental.col = sl
+codegen.input.delimiters.record = 0
+enable.compression = false
+hive.overwrite.table = false
+hive.import = false
+codegen.input.delimiters.enclose = 0
+accumulo.batch.size = 10240000
+hive.drop.delims = false
+customtool.options.jsonmap = {}
+codegen.output.delimiters.enclose = 0
+hdfs.delete-target.dir = false
+codegen.output.dir = .
+codegen.auto.compile.dir = true
+relaxed.isolation = false
+mapreduce.num.mappers = 1
+accumulo.max.latency = 5000
+import.direct.split.size = 0
+sqlconnection.metadata.transaction.isolation.level = 2
+codegen.output.delimiters.field = 44
+export.new.update = UpdateOnly
+incremental.mode = AppendRows
+hdfs.file.format = TextFile
+sqoop.oracle.escaping.disabled = true
+codegen.compile.dir = /tmp/sqoop-cloudera/compile/e824583256d3ef50116a9b4ccecd9d75
+direct.import = false
+temporary.dirRoot = _sqoop
+hdfs.target.dir = /user/cloudera/jimport
+hive.fail.table.exists = false
+db.batch = false
+[cloudera@quickstart ~]$ sqoop job --exec dxbsalesjob
+Warning: /usr/lib/sqoop/../accumulo does not exist! Accumulo imports will fail.
+Please set $ACCUMULO_HOME to the root of your Accumulo installation.
+23/10/24 06:18:18 INFO sqoop.Sqoop: Running Sqoop version: 1.4.6-cdh5.12.0
+Enter password:
+23/10/24 06:18:29 INFO manager.MySQLManager: Preparing to use a MySQL streaming resultset.
+23/10/24 06:18:29 INFO tool.CodeGenTool: Beginning code generation
+23/10/24 06:18:30 INFO manager.SqlManager: Executing SQL statement: SELECT t.* FROM `dxbexp_tab` AS t LIMIT 1
+23/10/24 06:18:30 INFO manager.SqlManager: Executing SQL statement: SELECT t.* FROM `dxbexp_tab` AS t LIMIT 1
+23/10/24 06:18:30 INFO orm.CompilationManager: HADOOP_MAPRED_HOME is /usr/lib/hadoop-mapreduce
+Note: /tmp/sqoop-cloudera/compile/c6cbd8bb3ba8a3048bff60298418bc9d/dxbexp_tab.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+23/10/24 06:18:36 INFO orm.CompilationManager: Writing jar file: /tmp/sqoop-cloudera/compile/c6cbd8bb3ba8a3048bff60298418bc9d/dxbexp_tab.jar
+23/10/24 06:18:40 INFO tool.ImportTool: Maximal id query for free form incremental import: SELECT MAX(`sl`) FROM `dxbexp_tab`
+23/10/24 06:18:40 INFO tool.ImportTool: Incremental import based on column `sl`
+23/10/24 06:18:40 INFO tool.ImportTool: No new rows detected since last import.
+
+
